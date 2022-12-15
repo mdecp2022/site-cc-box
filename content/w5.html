@@ -142,6 +142,22 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">HW << <a href='HW.html'>Previous</a> <a href='w6.html'>Next</a> >> w6<br /><h1>w5</h1>
+<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/b9b9eb13b0d4eb5d0aeae0ba1703c811/raw/a3d112bfc1143ba874632c1d40a77b9f02f2560c/w5">亂數</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import random
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+# 利用重複迴圈呼叫 password_generator() 函式 10 次
+for i in range(10):
+    print(password_generator(4, pass_string))</pre>
 <br />HW << <a href='HW.html'>Previous</a> <a href='w6.html'>Next</a> >> w6</div>
         
     <!-- footer -->
