@@ -3,8 +3,51 @@
 <p>個人倉儲:<a href="https://github.com/mdecp2022/site-cc-box">https://github.com/mdecp2022/site-cc-box</a></p>
 <h1>HW</h1>
 <h2>w6</h2>
-<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/0bd88764eb29a972bf9f4986b87bbc23/raw/d7fa166c49af6a12910ef0d2b0eacd75e40ffcea/w13_temp_ex1.py"></a></p>
-<h2>w12</h2>
+<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/aba393af0529f9c43af72137584c7dfd/raw/1d44b96b2a0fd2552bf45b34074fc120dd81b5f8/w6%2520hw%2520%25E5%25B0%2587%25E6%258A%25BD%25E9%25BB%259E%25E7%25A8%258B%25E5%25BC%258F%25E8%2588%2587%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%25E5%2590%2588%25E4%25BD%25B5">抽點程式個人靜態網頁合併</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
+import random
+brython_div1 = document["brython_div1"]
+# Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
+"""
+brython_div1 &lt;= html.BUTTON("hello")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.A("google", href="https://google.com/%22)
+"""
+
+# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
+url = "https://mde.tw/studlist/2022fall/1a.txt"
+# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
+# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
+# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
+# 所對應到 data 的資料型別將會是數列
+data = open(url).read().split("\n")
+# 宣告 mdecp2022 變數值為字串, 此字串為方便之後撰寫
+mdecp2022 = "https://mdecp2022.github.io/site-"
+# 宣告 data 為 data 的第二項到倒數第二項
+data = data[1:-1]
+
+# 使用 random 模組裡的 shuffle 將data裡的元素打亂
+random.shuffle(data)
+# 使用重複迴圈在 data 裡取前五個(0,1,2,3,4)
+for i in data[:5]:
+    # 宣告 stud 變數為切割掉空格的i
+    stud = i.split("\t")
+    # 宣告 stud_num 為 stud 的第一項
+    stud_num = stud[0]
+    # 宣告 github_acc 為 stud 的第二項
+    github_acc = stud[1]
+    #print(stud_num, github_acc)
+    # 如果 github_acc 沒有取到
+    if github_acc == "":
+        # github_acc 就會是 stud_num
+        github_acc = stud_num
+    # site (網站)= mdecp2022 變數 + github_acc 變數
+    site = mdecp2022 + github_acc
+    link = html.A(stud_num, href=site)
+    brython_div1 &lt;= link
+    brython_div1 &lt;= html.BR()</pre>
+<p><br/><br/></p><h2>w12</h2>
 <p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/b5fa1bda4e1e9585d5db38a5ec1eff63/raw/c760f473b112222fd1b8734e1944bbc82dcf9e4a/w12_hw_ex1.py">ex1</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Brython 的 input() 可以接受輸入提示字串, 跳出瀏覽器輸入表單後, 將輸入內容以字串取回
 user_input_temp = input("請輸入攝氏溫度值:")
