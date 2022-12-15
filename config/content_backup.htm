@@ -3,6 +3,22 @@
 <p>個人倉儲:<a href="https://github.com/mdecp2022/site-cc-box">https://github.com/mdecp2022/site-cc-box</a></p>
 <h1>HW</h1>
 <h2>w5</h2>
+<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/b9b9eb13b0d4eb5d0aeae0ba1703c811/raw/a3d112bfc1143ba874632c1d40a77b9f02f2560c/w5">亂數</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import random
+import string
+# 利用 def 關鍵字定義函式
+# 函式的輸入變數可以設定初始值
+def password_generator(size=4, chars=string.ascii_lowercase + string.digits):
+    # 函式內以多行註解說明函式功能
+    """Generate random password
+    """
+    # 利用 return 關鍵字將所產生的亂數字串傳回
+    return ''.join(random.choice(chars) for _ in range(size))
+# 建立一個變數與隨後的字串對應
+pass_string = "abcdefghkmnpqrstuwxyz123456789"
+# 利用重複迴圈呼叫 password_generator() 函式 10 次
+for i in range(10):
+    print(password_generator(4, pass_string))</pre>
 <h2>w6</h2>
 <p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/aba393af0529f9c43af72137584c7dfd/raw/1d44b96b2a0fd2552bf45b34074fc120dd81b5f8/w6%2520hw%2520%25E5%25B0%2587%25E6%258A%25BD%25E9%25BB%259E%25E7%25A8%258B%25E5%25BC%258F%25E8%2588%2587%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%25E5%2590%2588%25E4%25BD%25B5">抽點程式個人靜態網頁合併</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
