@@ -141,53 +141,41 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w5 << <a href='w5.html'>Previous</a> <a href='w10.html'>Next</a> >> w10<br /><h1>w6</h1>
-<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/aba393af0529f9c43af72137584c7dfd/raw/1d44b96b2a0fd2552bf45b34074fc120dd81b5f8/w6%2520hw%2520%25E5%25B0%2587%25E6%258A%25BD%25E9%25BB%259E%25E7%25A8%258B%25E5%25BC%258F%25E8%2588%2587%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%25E5%2590%2588%25E4%25BD%25B5">抽點程式個人靜態網頁合併</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
-# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
-import random
-brython_div1 = document["brython_div1"]
-# Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
-"""
-brython_div1 &lt;= html.BUTTON("hello")
-brython_div1 &lt;= html.BR()
-brython_div1 &lt;= html.A("google", href="https://google.com/%22)
-"""
-
-# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
-url = "https://mde.tw/studlist/2022fall/1a.txt"
-# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
-# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
-# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
-# 所對應到 data 的資料型別將會是數列
-data = open(url).read().split("\n")
-# 宣告 mdecp2022 變數值為字串, 此字串為方便之後撰寫
-mdecp2022 = "https://mdecp2022.github.io/site-"
-# 宣告 data 為 data 的第二項到倒數第二項
-data = data[1:-1]
-
-# 使用 random 模組裡的 shuffle 將data裡的元素打亂
-random.shuffle(data)
-# 使用重複迴圈在 data 裡取前五個(0,1,2,3,4)
-for i in data[:5]:
-    # 宣告 stud 變數為切割掉空格的i
-    stud = i.split("\t")
-    # 宣告 stud_num 為 stud 的第一項
-    stud_num = stud[0]
-    # 宣告 github_acc 為 stud 的第二項
-    github_acc = stud[1]
-    #print(stud_num, github_acc)
-    # 如果 github_acc 沒有取到
-    if github_acc == "":
-        # github_acc 就會是 stud_num
-        github_acc = stud_num
-    # site (網站)= mdecp2022 變數 + github_acc 變數
-    site = mdecp2022 + github_acc
-    link = html.A(stud_num, href=site)
-    brython_div1 &lt;= link
-    brython_div1 &lt;= html.BR()</pre>
+    <div id="tipue_search_content">w13 << <a href='w13.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>w15</h1>
+<div>
+<div style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Web', sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;"><span></span>
+<div> 請試著回答下列問題?</div>
+<div></div>
+<div>      1.為何學習計算機程式需要建立個人倉儲?</div>
+<div data-tid="messageBodyContainer">
+<div data-tid="messageBodyContent">
+<div>
+<div>
+<div>
+<div>
+<p>          A:為了將學習內容記錄下來</p>
+<p>      2.全球資訊網能夠提供甚麼功能或有什麼優點?</p>
+<p>         A:</p>
+<p>      3.Replit, stud.cycu.org 與 localhost 分別代表甚麼?</p>
+<p>         A:</p>
+<p>      4.https, ssh 到底提供使用者那些功能或優點?</p>
+<p>        A:</p>
+<p>      5.Brython 與 Python 有甚麼差別?</p>
+<p>        A:</p>
+<p>      6.能夠直接在瀏覽器中以 Brython 繪製中華民國國旗, 或模擬綠色方塊在方塊格點中任意移動, 代表甚麼?</p>
+<p>        A:</p>
+<p>      7.變數, 字串, 整數, 浮點數, 數列, Tuple, Dictionary, 函式, 重複迴圈, class, 物件導向, 資料庫, 這些名詞對您而言代表甚麼?</p>
+<p>        A:</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p></p>
-<br />w5 << <a href='w5.html'>Previous</a> <a href='w10.html'>Next</a> >> w10</div>
+<br />w13 << <a href='w13.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
       <div class="container">
