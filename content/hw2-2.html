@@ -2,7 +2,7 @@
         <head>
         <title>41123117</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,53 +141,82 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w5 << <a href='w5.html'>Previous</a> <a href='w10.html'>Next</a> >> w10<br /><h1>w6</h1>
-<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/aba393af0529f9c43af72137584c7dfd/raw/1d44b96b2a0fd2552bf45b34074fc120dd81b5f8/w6%2520hw%2520%25E5%25B0%2587%25E6%258A%25BD%25E9%25BB%259E%25E7%25A8%258B%25E5%25BC%258F%25E8%2588%2587%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%25E5%2590%2588%25E4%25BD%25B5">抽點程式個人靜態網頁合併</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
-# 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
-import random
-brython_div1 = document["brython_div1"]
-# Python 的註解分為單行註解與多行, 單行註解可在字串前方放入 #
-"""
-brython_div1 &lt;= html.BUTTON("hello")
-brython_div1 &lt;= html.BR()
-brython_div1 &lt;= html.A("google", href="https://google.com/%22)
-"""
-
-# 宣告 url 變數值為字串, 此字串為取得 cp2022 1a 選課成員名單
-url = "https://mde.tw/studlist/2022fall/1a.txt"
-# 利用上述已經宣告的 url 變數字串值, 作為 open() 函式的輸入變數, 可以連結至該網站
-# 連接 url 所代表字串的網站後, 再利用 read() 函式讀取該網站的內容, 即可取得 cp2022 1a 的選課成員學號
-# 由於所取回的學號以跳行符號隔開, 因此取回的學號資料行, 再利用 split() 函式, 以 \n 跳行符號分割後
-# 所對應到 data 的資料型別將會是數列
-data = open(url).read().split("\n")
-# 宣告 mdecp2022 變數值為字串, 此字串為方便之後撰寫
-mdecp2022 = "https://mdecp2022.github.io/site-"
-# 宣告 data 為 data 的第二項到倒數第二項
-data = data[1:-1]
-
-# 使用 random 模組裡的 shuffle 將data裡的元素打亂
-random.shuffle(data)
-# 使用重複迴圈在 data 裡取前五個(0,1,2,3,4)
-for i in data[:5]:
-    # 宣告 stud 變數為切割掉空格的i
-    stud = i.split("\t")
-    # 宣告 stud_num 為 stud 的第一項
-    stud_num = stud[0]
-    # 宣告 github_acc 為 stud 的第二項
-    github_acc = stud[1]
-    #print(stud_num, github_acc)
-    # 如果 github_acc 沒有取到
-    if github_acc == "":
-        # github_acc 就會是 stud_num
-        github_acc = stud_num
-    # site (網站)= mdecp2022 變數 + github_acc 變數
-    site = mdecp2022 + github_acc
-    link = html.A(stud_num, href=site)
-    brython_div1 &lt;= link
-    brython_div1 &lt;= html.BR()</pre>
+    <div id="tipue_search_content">W11 << <a href='W11.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>hw2-2</h1>
+<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/094fd59674ed9c1f3483271d7d5d35b2/raw/a138eec15857005b656c72352a37ab88c8b25412/w11%2520hw2">w11 缺考人數以及平均分數</a></p>
+<pre># 導入 ast 模組是希望利用其 literal_eval() 將 dict 格式的字串轉為 dict 資料型別
+# 以利隨後的取值運算
+import ast
+# 定義一個函式, 以班級代號字串作為輸入, 可以傳回各班修課學員的學號數列
+def get_stud(c_name):
+    # 將課程的班級代號字串作為 dict 的 key, 而 2022 fall 的課程代號作為對應值
+    # 使用者可以利用班級代號從 courses dict 取出課程代號
+    courses = {"1a": "0747", "1b": "0761", "2a": "0773", "2b": "0786"}
+    # 利用 c_name 從 courses 得到該學期的課程代號
+    c = courses[c_name]
+    # 利用課程代號從學校教務主機取的該班修課人員名單
+    url = "https://nfu.cycu.org/?semester=1111&amp;courseno=" + c + "&amp;column=True"
+    # 讀出各修課人員資料後, 以跳行符號切割, 得到的 data 為數列
+    data = open(url).read().split("\n")
+    # 因為最後一筆資料為空字串, 因此利用數列運算將其去除
+    stud = data[:-1]
+    # get_stud() 函式最後將對應班級的修課人員學號以數列格式傳回
+    return stud
+# 利用 "1b" 作為輸入從 get_stud() 取出該班修課學員學號數列
+cp_stud = get_stud("1b")
+# get w10 quiz result
+# # 以下為 1b w10 quiz 考試結果的 JSON 檔案
+cp_w10_quiz_url = "https://gist.githubusercontent.com/mdecycu/9df4b372ac1b7386cf259ced15f1a2b2/raw/8e59f90d8ff4f1ad4fecd4f7ee159f91eb6addf9/cp1b_w11_quiz_result.json"
+def get_score(url):
+    # 利用 open() 與 read() 讀取考試結果 JSON 檔案
+    json_data = open(url).read()
+    # 利用 ast.literal_eval() 將字串 dict, 轉為程式可用的 dict 資料型別
+    big_dict = ast.literal_eval(json_data)
+    # 從 big_dict 中, 取出 body 中的 testuser 欄位資料
+    data = big_dict["body"]["testuser"]
+    # 定義一個空 dict 資料變數, 隨後利用迴圈逐一將學號作為 key, 考試成績為 valude
+    # 組成 quiz_dict 的資料內容, 以便之後可以用學號當作輸入, 取得該員考試成績
+    quiz_dict = {}
+    for i in data:
+        # data 資料中的 user_name 為考試學員的帳號, 也就是學號
+        stud_id = data[i]["user_name"]
+        # data 資料中的 total_score 欄位為考試成績
+        # 因為考試成績為字串, 先轉為浮點數後, 再轉為整數
+        stud_score = int(float(data[i]["total_score"]))
+        # 逐一以學號為 key, 考試成績為對應 value, 將資料放入 quiz_dict
+        quiz_dict[stud_id] = stud_score
+    # 取得各學員的考試成績 quiz_dict 後, 將資料傳回
+    return quiz_dict
+# 從考試 JSON 檔案中取得考試結果的字典資料
+cp_quiz = get_score(cp_w10_quiz_url)
+# 設定一個空數列, 隨後將利用 append() 方法, 將缺考學員學號存入
+cp_abs = []
+# 從修課學員數列中, 逐一按照學號次序, 以重複迴圈將學號對應至 stud 變數
+h=0
+z=0
+x=0
+for stud in cp_stud:
+    # 因為缺考學員在考試結果的 dict 中並無資料, 因此利用 try except 進行判斷
+    try:
+        # 針對 stud 學號, 有考試成績者, 列出其學號與得分
+        print(stud, cp_quiz[stud])
+        x+=float(cp_quiz[stud])
+        z+=1
+    except:
+        # 缺考者沒有 quiz 成績, 則在其成績欄位印出"缺"
+        print(stud, "缺")
+        # 同時將缺考學員學號以 append() 方法逐一置入
+        cp_abs.append(stud)
+        h+=1
+# 列出缺考名單
+print("="*20)
+print("以下為 w10 缺考名單:")
+# 因為 cp_abs 資料為 list, 在此利用 for 迴圈逐一列出
+for stud in cp_abs:
+    print(stud)
+print("缺考人數",str(h))
+print("平均分數",x/z)</pre>
 <p></p>
-<br />w5 << <a href='w5.html'>Previous</a> <a href='w10.html'>Next</a> >> w10</div>
+<br />W11 << <a href='W11.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
         
     <!-- footer -->
       <div class="container">
