@@ -110,14 +110,14 @@ img.add_border {
             <header class="site-navbar py-4 bg-white" role="banner">
               <div class="container">
                 <div class="row align-items-center">
-                <h1>CMSimfly </h1>
+                <h1>41123117</h1>
                 <div class="pl-4">
                     <form>
                     <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
                     </form>
                 </div>
                   <!-- <div class="col-11 col-xl-2">
-                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">CMSimfly </a></h1> 
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">41123117</a></h1> 
                   </div>
                   -->
                   <div class="col-12 col-md-10 d-none d-xl-block">
@@ -142,6 +142,32 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w5 << <a href='w5.html'>Previous</a> <a href='w10.html'>Next</a> >> w10<br /><h1>w6</h1>
+<p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/2c7460792294dc3a1888ab31aea68049/raw/3b9005fb3749740bc21ad67e2a1c9297bff54b5c/w6%2520hw%2520%25E5%2590%2584%25E5%25AD%25B8%25E5%2593%25A1%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599">各學員靜態網站</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+
+brython_div1 = document["brython_div1"]
+"""
+brython_div1 &lt;= html.BUTTON("hello")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= html.A("google", href="https://google.com")
+"""
+
+url = "https://mde.tw/studlist/2022fall/1a.txt"
+data = open(url).read().split("\n")
+mdecp2022 = "https://mdecp2022.github.io/site-"
+data = data[1:-1]
+for i in data:
+    stud = i.split("\t")
+    stud_num = stud[0]
+    github_acc = stud[1]
+    #print(stud_num, github_acc)
+    if github_acc == "":
+        github_acc = stud_num
+    site = mdecp2022 + github_acc
+    link = html.A(stud_num, href=site)
+    brython_div1 &lt;= link
+    brython_div1 &lt;= html.BR()
+</pre>
 <p><a href="https://mdecp2022.github.io/site-cc-box/content/Brython.html?src=https://gist.githubusercontent.com/cc-box/aba393af0529f9c43af72137584c7dfd/raw/1d44b96b2a0fd2552bf45b34074fc120dd81b5f8/w6%2520hw%2520%25E5%25B0%2587%25E6%258A%25BD%25E9%25BB%259E%25E7%25A8%258B%25E5%25BC%258F%25E8%2588%2587%25E9%259D%259C%25E6%2585%258B%25E7%25B6%25B2%25E7%25AB%2599%25E5%2590%2588%25E4%25BD%25B5">抽點程式個人靜態網頁合併</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
 # 使用 import 導入 random 模組, 隨後就可以直接引用 random 模組的方法
